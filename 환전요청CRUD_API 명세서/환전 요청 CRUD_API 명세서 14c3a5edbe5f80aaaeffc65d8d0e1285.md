@@ -6,19 +6,10 @@ Created: November 28, 2024 12:15 PM
 
 | 기능 | Method | URL | Request | Response | Status Code |
 | --- | --- | --- | --- | --- | --- |
-| 환전 요청 수행 | POST | /api/exchange | 요청 bdoy | 수행 결과 | 성공
-_ 201 Created |
-| 환전 요청 조회 | GET | /api/exchange |  | 조회 정보 | 성공
-_ 200 OK |
-| 환전 요청 취소
-(상태변경) | PUT | /api/exchange/{id}   |  | 취소 성공 여부 | 성공
-_200 OK
-실패
-_404 NotFound |
-| 고객 데이터 삭제 | DELETE | /api/exchange/{id} |  |  | 성공
-_ 200 OK
-실패
-_404 NotFound |
+| 환전 요청 수행 | POST | /api/exchange | 요청 bdoy | 수행 결과 | 성공_ 201 Created |
+| 환전 요청 조회 | GET | /api/exchange |  | 조회 정보 | 성공_ 200 OK |
+| 환전 요청 취소<br>(상태변경) | PUT | /api/exchange/{id}   |  | 취소 성공 여부 | 성공_200 OK<br>실패_404 NotFound |
+| 고객 데이터 삭제 | DELETE | /api/exchange/{id} |  |  | 성공_ 200 OK<br>실패_404 NotFound |
 
 ### 1. 환전요청 수행
 
@@ -28,7 +19,8 @@ _404 NotFound |
 | --- | --- | --- | --- |
 | amount_in_krw | Decimal | 환전 전 금액(원) | O |
 
-<aside>
+<pre>
+  <code>
 
 {
 
@@ -38,7 +30,8 @@ _404 NotFound |
 
 }
 
-</aside>
+</code>
+</pre>
 
 º 응답
 
@@ -46,15 +39,16 @@ _404 NotFound |
 | --- | --- | --- | --- |
 | amount_after_exchange | BigDecimal | 환전 후 금액(달러) | O |
 
-<aside>
-
+<pre>
+  <code>
 {
 
 “amount_after_exchange”: “7.17”
 
 }
 
-</aside>
+</code>
+</pre>
 
 ### 2. 환전 요청 기록 조회(특정 고객)
 
@@ -65,8 +59,8 @@ _404 NotFound |
 | name | String | 사용자 이름 | O |
 | email | String | 사용자 이메일 | O |
 
-<aside>
-
+<pre>
+  <code>
 {
 
 “name”: “000”,
@@ -75,7 +69,8 @@ _404 NotFound |
 
 }
 
-</aside>
+</code>
+</pre>
 
 º 응답
 
@@ -85,7 +80,8 @@ _404 NotFound |
 | amount_in_krw | Decimal | 환전 전 금액 | O |
 | amount_after_exchange | Decimal | 환전 후 금액 | O |
 
-<aside>
+<pre>
+  <code>
 
 {
 
@@ -97,7 +93,8 @@ _404 NotFound |
 
 }
 
-</aside>
+</code>
+</pre>
 
 ### 3. 환전 요청 상태를 취소로 변경
 
@@ -109,7 +106,8 @@ _404 NotFound |
 
 - 200 OK
 
-<aside>
+<pre>
+  <code>
 
 {
 
@@ -117,7 +115,8 @@ _404 NotFound |
 
 }
 
-</aside>
+</code>
+</pre>
 
 **º 예외**
 
@@ -129,7 +128,8 @@ _404 NotFound |
 
 - 200 OK
 
-<aside>
+<pre>
+  <code>
 
 {
 
@@ -137,7 +137,8 @@ _404 NotFound |
 
 }
 
-</aside>
+</code>
+</pre>
 
 **º 예외**
 
